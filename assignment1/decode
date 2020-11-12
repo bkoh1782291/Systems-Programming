@@ -1,0 +1,133 @@
+#!/bin/bash
+
+#./decode input.txt
+# assumes text is uppercase.
+
+#if no parameters
+if [ "$#" -lt 1 ]
+then
+    echo  "Please insert a file for input"
+exit
+fi
+
+#printf '%s\n' "$line"
+
+#initialize array
+my_array[0]=0
+
+while IFS= read -r line
+do
+    for c2 in {1..25}
+    do
+        if [[ c2 -eq 1 ]] 
+        then
+            my_array[c2]=`tr '[A-Z]' '[B-ZA-A]' < "$1"`
+
+        elif [[ c2 -eq 2 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[C-ZA-B]' < "$1"`
+
+        elif [[ c2 -eq 3 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[D-ZA-C]' < "$1"`
+
+        elif [[ c2 -eq 4 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[E-ZA-D]' < "$1"`
+
+        elif [[ c2 -eq 5 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[F-ZA-E]' < "$1"`
+
+        elif [[ c2 -eq 6 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[G-ZA-F]' < "$1"`
+
+        elif [[ c2 -eq 7 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[H-ZA-G]' < "$1"`
+
+        elif [[ c2 -eq 8 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[I-ZA-H]' < "$1"`
+
+        elif [[ c2 -eq 9 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[J-ZA-I]' < "$1"`
+
+        elif [[ c2 -eq 10 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[K-ZA-J]' < "$1"`
+
+        elif [[ c2 -eq 11 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[L-ZA-K]' < "$1"`
+
+        elif [[ c2 -eq 12 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[M-ZA-L]' < "$1"`
+
+        elif [[ c2 -eq 13 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[N-ZA-M]' < "$1"`
+
+        elif [[ c2 -eq 14 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[O-ZA-N]' < "$1"`
+
+        elif [[ c2 -eq 15 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[P-ZA-O]' < "$1"`
+
+        elif [[ c2 -eq 16 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[Q-ZA-P]' < "$1"`
+
+        elif [[ c2 -eq 17 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[R-ZA-Q]' < "$1"`
+
+        elif [[ c2 -eq 18 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[S-ZA-R]' < "$1"`
+
+        elif [[ c2 -eq 19 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[T-ZA-S]' < "$1"`
+
+        elif [[ c2 -eq 20 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[U-ZA-T]' < "$1"`
+
+        elif [[ c2 -eq 21 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[V-ZA-U]' < "$1"`
+
+        elif [[ c2 -eq 22 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[W-ZA-V]' < "$1"`
+
+        elif [[ c2 -eq 23 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[X-ZA-W]' < "$1"`
+
+        elif [[ c2 -eq 24 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[Y-ZA-X]' < "$1"`
+
+        elif [[ c2 -eq 25 ]]
+        then
+            my_array[c2]=`tr '[A-Z]' '[Z-ZA-Y]' < "$1"`
+        
+        fi
+    done
+done < "$1"
+
+
+#prints translated code
+for c3 in {1..25}
+do
+    echo Shift "$c3"
+    printf "%s\n" "${my_array[c3]}"
+done
+

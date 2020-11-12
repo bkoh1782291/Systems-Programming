@@ -1,0 +1,81 @@
+#!/bin/bash
+#Input: ./create_pattern -n 2
+#Output: [c-za-b]
+
+#Input: ./create_pattern -n 2 -u
+#Output: [C-ZA-B]
+
+# for all parameters
+  #if -n exists start for loop
+    # for i in 0 to 25
+      #if $@ equals to i
+
+ 
+#if no parameters exist
+if [ "$#" -lt 1 ]
+then
+    echo  "Please insert at least one argument"
+exit
+fi
+
+#uppercase (case 0)
+if [[ ("$3" == "-u" && "$1" == "-n") || ("$3" == "-n" && "$1" == "-u") || ("$1" == "-n" && "$2" == "-u") || ("$2" == "-n" && "$3" == "-u") || ("$1" == "-u" && "$2" == "-n") || ("$1" -eq 0 && "$2" == "-u" && "$3" == "-n") ]]
+    then
+        if [[ ( "$2" -eq '0' && "$2" != "-n" && "$2" != "-u" )  ]]
+        then
+            let i=65
+            let o=90
+            printf ""["\\$(printf %03o "$i")""-""ZA""-""\\$(printf %03o "$o")""]"
+        fi
+else
+#lowercase (case 0)
+        if [[ ("$2" -eq '0') ]]
+        then
+            let i=97
+            let o=122
+            printf ""["\\$(printf %03o "$i")""-""za""-""\\$(printf %03o "$o")""]"
+        fi
+fi
+
+#uppercase ( case 1-25 )
+if [[ ("$3" == "-u" && "$1" == "-n") || ("$3" == "-n" && "$1" == "-u") || ("$1" == "-n" && "$2" == "-u") || ("$2" == "-n" && "$3" == "-u") || ("$1" == "-u" && "$2" == "-n") || ("$2" == "-u" && "$3" == "-n") ]]
+then
+    for c2 in {1..25}
+    do
+        if [[ ("$2" -eq c2) ]]
+        then
+            let i=65+$c2
+            let o=64+$c2
+            printf ""["\\$(printf %03o "$i")""-""ZA""-""\\$(printf %03o "$o")""]"
+        elif [[ ("$3" -eq c2) ]] 
+        then
+            let i=65+$c2
+            let o=64+$c2
+            printf ""["\\$(printf %03o "$i")""-""ZA""-""\\$(printf %03o "$o")""]"
+        fi
+    done
+#lower case (case 1-25)
+elif [[ ("$1" == "-n") || ("$2" == "-n") ]]
+then
+    #for 2nd parameter
+    for c2 in {1..25}
+    do
+        if [[ ("$2" -eq c2) ]]
+        then
+            let i=97+$c2
+            let o=96+$c2
+            printf ""["\\$(printf %03o "$i")""-""za""-""\\$(printf %03o "$o")""]"
+        fi
+    done
+fi
+
+printf "\n"
+
+
+
+#the script must output the correct shift pattern based on the shift number given.
+
+
+
+
+
