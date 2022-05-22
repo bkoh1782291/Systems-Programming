@@ -1,9 +1,9 @@
 # Systems-Programming
 
-University Work at UofA 
-COMP SCI 2005
-
-Bash scripting for caesar cipher.
+Run Makefile, defaults to v2.
+$ make part2
+$ make part3
+$ make part4
 
 Linux terminal simulator built in C.
   - simulation of how the terminal is made in a linux system.
